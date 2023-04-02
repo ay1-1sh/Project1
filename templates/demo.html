@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Stars</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+		}
+
+		h1,h2 {
+			color: white;
+			font-size: 48px;
+			font-family:Verdana, Geneva, Tahoma, sans-serif;
+			text-align: center;
+			margin-top: 100px;
+		}
+
+		.star {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: blue;
+			cursor: pointer;
+		}
+
+		.star.clicked {
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>WELCOME TO MY WORLD</h1>
+    <h2> CLick on the dost to see magic</h2>
+
+	<script>
+		function createStar() {
+			const star = document.createElement('div');
+			star.className = 'star';
+			star.style.left = Math.random() * window.innerWidth + 'px';
+			star.style.top = Math.random() * window.innerHeight + 'px';
+			star.addEventListener('click', function() {
+				this.classList.toggle('clicked');
+			});
+			star.addEventListener('dblclick', function() {
+				this.style.borderRadius = this.style.borderRadius === '50%' ? '0' : '50%';
+			});
+			document.body.appendChild(star);
+		}
+		setInterval(createStar, 100);
+	</script>
+</body>
+</html>
+
